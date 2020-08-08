@@ -1,0 +1,10 @@
+{
+  "_template": "gh:cjolowicz/cookiecutter-hypermodern-python",
+  "author": "Refik Can MALLI",
+  "email": "refikcan.malli@mail.polimi.it",
+  "friendly_name": "Faceless",
+  "github_user": "rcmalli",
+  "package_name": "faceless",
+  "project_name": "faceless",
+  "version": "0.1.0"
+}
