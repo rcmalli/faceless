@@ -1,4 +1,4 @@
-def add_path_suffix(path: str, suffix: str = "_faceless"):
+def add_path_suffix(path: str, suffix: str = "_faceless") -> str:
     """
 
     Args:
