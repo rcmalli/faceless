@@ -10,7 +10,13 @@ from faceless.utils import add_path_suffix
 @click.version_option()
 @click.pass_context
 def main(ctx, input: str, output: str = None) -> None:
-    """Faceless."""
+    """Faceless.
+
+    Args:
+        ctx:
+        input:
+        output:
+    """
     ctx.obj['input'] = input
     ctx.obj['output'] = add_path_suffix(ctx.obj['input']) if output is None else output
 
@@ -20,18 +26,33 @@ def main(ctx, input: str, output: str = None) -> None:
 @main.command()
 @click.pass_context
 def blur(ctx):
+    """
+
+    Args:
+        ctx:
+    """
     print('Blurring')
 
 
 @main.command()
 @click.pass_context
 def cloak(ctx):
+    """
+
+    Args:
+        ctx:
+    """
     print('Cloaking')
 
 
 @main.command()
 @click.pass_context
 def pixelate(ctx):
+    """
+
+    Args:
+        ctx:
+    """
     print('Pixelating')
 
 
