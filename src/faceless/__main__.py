@@ -1,7 +1,7 @@
 """Command-line interface."""
 import click
 
-from faceless.utils import add_path_suffix
+from .utils import add_path_suffix
 
 
 @click.group()
@@ -15,11 +15,11 @@ from faceless.utils import add_path_suffix
 @click.pass_context
 def main(ctx, input: str, output: str = None) -> None:
     """Faceless.
-
+    Main function to run all processes.
     Args:
-        ctx:
-        input:
-        output:
+        ctx: The context manager for the click.
+        input: Input path for the files.
+        output: The output file for the processed file.
     """
     ctx.obj["input"] = input
     ctx.obj["output"] = add_path_suffix(ctx.obj["input"]) if output is None else output
