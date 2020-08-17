@@ -15,11 +15,13 @@ from .utils import add_path_suffix
 @click.pass_context
 def main(ctx, input: str, output: str = None) -> None:
     """Faceless.
+
     Main function to run all processes.
+
     Args:
-        ctx: The context manager for the click.
-        input: Input path for the files.
-        output: The output file for the processed file.
+        ctx (object): The context manager for the click.
+        input (str): Input path for the files.
+        output (str): The output file for the processed file.
     """
     ctx.obj["input"] = input
     ctx.obj["output"] = add_path_suffix(ctx.obj["input"]) if output is None else output
@@ -30,10 +32,10 @@ def main(ctx, input: str, output: str = None) -> None:
 @main.command()
 @click.pass_context
 def blur(ctx):
-    """
+    """Blur Functionality.
 
     Args:
-        ctx:
+        ctx (object): The context manager for the click.
     """
     print("Blurring")
 
@@ -41,10 +43,10 @@ def blur(ctx):
 @main.command()
 @click.pass_context
 def cloak(ctx):
-    """
+    """Cloak Functionality.
 
     Args:
-        ctx:
+        ctx (object): The context manager for the click.
     """
     print("Cloaking")
 
@@ -52,10 +54,10 @@ def cloak(ctx):
 @main.command()
 @click.pass_context
 def pixelate(ctx):
-    """
+    """Pixelation Functionality.
 
     Args:
-        ctx:
+        ctx (object): The context manager for the click.
     """
     print("Pixelating")
 
