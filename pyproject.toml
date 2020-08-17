@@ -20,6 +20,11 @@ Changelog = "https://github.com/rcmalli/faceless/releases"
 [tool.poetry.dependencies]
 python = "^3.6.1"
 click = "^7.0"
+filetype = "^1.0.7"
+torch = "^1.6.0"
+torchvision = "^0.7.0"
+opencv-python = "^4.4.0"
+dlib = "^19.21.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.0.1"
