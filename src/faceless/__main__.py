@@ -6,58 +6,52 @@ from .utils import add_path_suffix
 
 @click.group()
 @click.option("--input", help="The Path of input image/video file.")
-@click.option(
-    "--output",
-    help="The Path of output file name. The default value is the same file "
-    "as input image/video file with a suffix",
-)
 @click.version_option()
 @click.pass_context
-def main(ctx, input: str, output: str = None) -> None:
+def main(ctx: click.Context, input: str) -> None:
     """Faceless.
 
     Main function to run all processes.
 
     Args:
-        ctx (object): The context manager for the click.
+        ctx (click.Context): The context manager for the click.
         input (str): Input path for the files.
-        output (str): The output file for the processed file.
     """
     ctx.obj["input"] = input
-    ctx.obj["output"] = add_path_suffix(ctx.obj["input"]) if output is None else output
+    ctx.obj["output"] = add_path_suffix(ctx.obj["input"])
 
     print(ctx)
 
 
 @main.command()
 @click.pass_context
-def blur(ctx):
+def blur(ctx: click.Context) -> None:
     """Blur Functionality.
 
     Args:
-        ctx (object): The context manager for the click.
+        ctx (click.Context): The context manager for the click.
     """
     print("Blurring")
 
 
 @main.command()
 @click.pass_context
-def cloak(ctx):
+def cloak(ctx: click.Context) -> None:
     """Cloak Functionality.
 
     Args:
-        ctx (object): The context manager for the click.
+        ctx (click.Context): The context manager for the click.
     """
     print("Cloaking")
 
 
 @main.command()
 @click.pass_context
-def pixelate(ctx):
+def pixelate(ctx: click.Context) -> None:
     """Pixelation Functionality.
 
     Args:
-        ctx (object): The context manager for the click.
+        ctx (click.Context): The context manager for the click.
     """
     print("Pixelating")
 
