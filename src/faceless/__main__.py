@@ -1,6 +1,5 @@
 """Command-line interface."""
 import click
-from click import Context
 
 from faceless.utils import add_path_suffix
 
@@ -60,4 +59,4 @@ def pixelate(ctx: click.Context) -> None:
 
 
 if __name__ == "__main__":
-    main(obj={}, prog_name="faceless")
+    main(obj={}, prog_name="faceless")  # pragma: no cover
