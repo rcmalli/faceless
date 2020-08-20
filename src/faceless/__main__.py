@@ -1,14 +1,16 @@
 """Command-line interface."""
 import click
+from click import Context
 
-from .utils import add_path_suffix
+from faceless.utils import add_path_suffix
 
 
 @click.group()
 @click.option("--input", help="The Path of input image/video file.")
+@click.option("--debug/--no-debug", default=False)
 @click.version_option()
 @click.pass_context
-def main(ctx: click.Context, input: str) -> None:
+def main(ctx: click.Context, input: str, debug: bool) -> None:
     """Faceless.
 
     Main function to run all processes.
@@ -16,10 +18,12 @@ def main(ctx: click.Context, input: str) -> None:
     Args:
         ctx (click.Context): The context manager for the click.
         input (str): Input path for the files.
+        debug (bool): Switch for activating the debug mode.
     """
+    ctx.obj = {} if ctx.obj is None else ctx.obj
     ctx.obj["input"] = input
     ctx.obj["output"] = add_path_suffix(ctx.obj["input"])
-    print(ctx)
+    click.echo("Debug mode is %s" % ("on" if debug else "off"))
 
 
 @main.command()
@@ -30,7 +34,7 @@ def blur(ctx: click.Context) -> None:
     Args:
         ctx (click.Context): The context manager for the click.
     """
-    print("Blurring")
+    click.echo("Blurring")
 
 
 @main.command()
@@ -41,7 +45,7 @@ def cloak(ctx: click.Context) -> None:
     Args:
         ctx (click.Context): The context manager for the click.
     """
-    print("Cloaking")
+    click.echo("Cloaking")
 
 
 @main.command()
@@ -52,8 +56,8 @@ def pixelate(ctx: click.Context) -> None:
     Args:
         ctx (click.Context): The context manager for the click.
     """
-    print("Pixelating")
+    click.echo("Pixelating")
 
 
 if __name__ == "__main__":
-    main(obj={}, prog_name="faceless")  # pragma: no cover
+    main(obj={}, prog_name="faceless")
