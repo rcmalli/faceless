@@ -19,7 +19,6 @@ def main(ctx: click.Context, input: str) -> None:
     """
     ctx.obj["input"] = input
     ctx.obj["output"] = add_path_suffix(ctx.obj["input"])
-
     print(ctx)
 
 
